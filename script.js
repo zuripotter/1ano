@@ -68,13 +68,14 @@ botaoSim.addEventListener('click', e => {
             
                 let submit = document.createElement("button")
                 submit.classList.add("buttonSubmit");
+                submit.setAttribute('type', 'submit');
                 submit.innerHTML = 'Enviar!';
 
                 bodyForm.append(submit);         
 
                 var submitButton = document.querySelector('.buttonSubmit');
 
-                submitButton.addEventListener('click', e => {
+                submitButton.addEventListener('click', async e => {
                     e.preventDefault()
                     let confirmados = []
                     confirmados.push(inputName.value)
@@ -82,7 +83,18 @@ botaoSim.addEventListener('click', e => {
                     for(i = 0; i < acompanhantes; i++) {
                         let inputsNames = document.querySelector(`#name${i}`).value
                         confirmados.push(inputsNames)
-                    }                  
+                    }
+                    
+
+                    console.log('enviado!')
+                    var formBody = document.querySelector('.form');
+                    formBody.remove();
+
+                    var h1 = document.querySelector('h1');
+                    var subTittle = document.querySelector('#subTittle');
+
+                    h1.innerHTML = "Obrigada pela ajuda!";
+                    subTittle.innerHTML = "Nos vemos no dia 07/07 😁";                 
 
                 })
             }
@@ -107,6 +119,22 @@ botaoNao.addEventListener('click', e => {
     submit.innerHTML = 'Enviar!';
 
     bodyForm.append(submit); 
+
+    var submitButton = document.querySelector('.buttonSubmit');
+        submitButton.addEventListener('click', async e => {
+            e.preventDefault()
+            
+            console.log('enviado!')
+                
+            var formBody = document.querySelector('.form');
+            formBody.remove();
+
+            var h1 = document.querySelector('h1');
+            var subTittle = document.querySelector('#subTittle');
+
+            h1.innerHTML = "Obrigada pela ajuda!";
+            subTittle.innerHTML = "Nos vemos no dia 07/07 😁";                 
+        })
 })
 
 
