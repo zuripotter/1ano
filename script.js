@@ -1,4 +1,4 @@
-var inputName = document.querySelector('#name')
+var inputName = document.querySelector('#name');
 var botaoSim = document.querySelector("#sim");
 var bodyForm = document.querySelector('form');
 
@@ -53,13 +53,16 @@ botaoSim.addEventListener('click', e => {
                 let nomes = document.createElement("div")
                 nomes.classList.add("dados");
                 nomes.setAttribute("id", "nomes");
-                nomes.innerHTML = '<p>Pode nos informar os nomes?</p><label for="criancas">Nomes:</label>';
+                nomes.innerHTML = '<label for="criancas">Pode nos informar os nomes?</label>';
                 bodyForm.append(nomes);
 
                 for(i = 0; i < acompanhantes; i++) {
                     let dadosBody = document.querySelector('#nomes')
                     let inputs = document.createElement("input")
-                    inputs.innerHTML = '<input type="number" id="criancas" name="criancas">';
+
+                    inputs.innerHTML = '<input type="text" name="names">';
+                    inputs.setAttribute("id", `name${i}`);
+
                     dadosBody.append(inputs);
                 }
             
@@ -68,6 +71,20 @@ botaoSim.addEventListener('click', e => {
                 submit.innerHTML = 'Enviar!';
 
                 bodyForm.append(submit);         
+
+                var submitButton = document.querySelector('.buttonSubmit');
+
+                submitButton.addEventListener('click', e => {
+                    e.preventDefault()
+                    let confirmados = []
+                    confirmados.push(inputName.value)
+                    
+                    for(i = 0; i < acompanhantes; i++) {
+                        let inputsNames = document.querySelector(`#name${i}`).value
+                        confirmados.push(inputsNames)
+                    }                  
+
+                })
             }
         })
     } else {
@@ -91,6 +108,7 @@ botaoNao.addEventListener('click', e => {
 
     bodyForm.append(submit); 
 })
+
 
 
 

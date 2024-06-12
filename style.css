@@ -58,13 +58,43 @@
     margin-bottom: 10px;
     font-size: 2rem;
     font-weight: 700;
+    cursor: pointer;
   }
-  
-  /* @media (min-width: 550px) {
+
+  @media all and (min-width: 1000px) and (max-width: 1700px) {
     .banner img {
-      width: 550px;
+      width: 450px;
     }
+
+    #div {
+      width: 0;
+    }
+
+    .confirmation {
+      padding-bottom: 50px;
+    }
+
+
+    .confirmation h2 {
+      font-size: 2.5rem;
+    }
+
+    .confirmation .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .confirmation button {
+      width: 200px;
+      height: 50px;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+    
   }
-   */
+
   
   
